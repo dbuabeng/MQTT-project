@@ -28,7 +28,10 @@ Using the LINDDUN framework, we identified the following potential privacy threa
 
 ![image](https://github.com/user-attachments/assets/075faaab-feb1-47b4-aac0-24d55b391777)
 
-![image](https://github.com/user-attachments/assets/545f5834-898b-474e-a5c2-c3883bf85086)
+![g1](https://github.com/user-attachments/assets/09ac4f60-0058-4861-9548-3a559cb1ad78)
+![g2](https://github.com/user-attachments/assets/75ff12f9-e3a7-494e-a995-75f2440bd520)
+![g3](https://github.com/user-attachments/assets/4abd3b00-8e44-415b-a6b3-4d1665be6284)
+![g4](https://github.com/user-attachments/assets/dbd58e22-8d51-4649-9bf1-45099ed056d6)
 
 
 ## MQTT-Specific Privacy Threats
