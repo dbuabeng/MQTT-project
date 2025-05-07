@@ -28,7 +28,7 @@ Using the LINDDUN framework, we identified the following potential privacy threa
 
 ![image](https://github.com/user-attachments/assets/075faaab-feb1-47b4-aac0-24d55b391777)
 
-# Vulnerability Analysis by Component and Data Flow
+## Vulnerability Analysis by Component and Data Flow
 
 | Label | Element               | Description                                   | Potential Vulnerability                               | LINDDUN Category                         | Mitigation                                      |
 |-------|------------------------|-----------------------------------------------|--------------------------------------------------------|------------------------------------------|--------------------------------------------------|
