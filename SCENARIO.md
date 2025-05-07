@@ -26,6 +26,10 @@ Using the LINDDUN framework, we identified the following potential privacy threa
 | Unawareness                 | Victims may not realize how much data is being shared.            |
 | Non-compliance              | The system may violate privacy laws like GDPR without protections.|
 
+![image](https://github.com/user-attachments/assets/075faaab-feb1-47b4-aac0-24d55b391777)
+
+![image](https://github.com/user-attachments/assets/545f5834-898b-474e-a5c2-c3883bf85086)
+
 
 ## MQTT-Specific Privacy Threats
 
