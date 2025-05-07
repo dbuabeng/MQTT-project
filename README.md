@@ -36,3 +36,6 @@ The subscriber will receive and decrypt messages sent by the publisher.
 I manually generated the encryption key. It is stored inside docs/encryptionKey.key.
 
 In these programs messages are encrypted and tokenized for privacy protection.
+
+## Link to YouTube Video
+https://youtu.be/nSvhTHZ3BNM
