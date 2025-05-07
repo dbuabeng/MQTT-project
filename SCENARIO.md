@@ -54,7 +54,6 @@ To address these risks, we integrated two privacy-enhancing technologies (PETs):
 We replaced real victim identifiers (For example "Victim1") with random UUID tokens.  
 This prevents direct identification if messages are intercepted.
 
-encryptionKey.key: EnmgEpKSUD8qEgyrhkF9oEkgVdK7_8cTmr77OeLUmz8=
 
 ### 2. Encryption
 We encrypted all MQTT message payloads using symmetric encryption (Fernet).  
