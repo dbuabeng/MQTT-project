@@ -28,10 +28,27 @@ Using the LINDDUN framework, we identified the following potential privacy threa
 
 ![image](https://github.com/user-attachments/assets/075faaab-feb1-47b4-aac0-24d55b391777)
 
-![g1](https://github.com/user-attachments/assets/09ac4f60-0058-4861-9548-3a559cb1ad78)
-![g2](https://github.com/user-attachments/assets/75ff12f9-e3a7-494e-a995-75f2440bd520)
-![g3](https://github.com/user-attachments/assets/4abd3b00-8e44-415b-a6b3-4d1665be6284)
-![g4](https://github.com/user-attachments/assets/dbd58e22-8d51-4649-9bf1-45099ed056d6)
+# Vulnerability Analysis by Component and Data Flow
+
+| Label | Element               | Description                                   | Potential Vulnerability                               | LINDDUN Category                         | Mitigation                                      |
+|-------|------------------------|-----------------------------------------------|--------------------------------------------------------|------------------------------------------|--------------------------------------------------|
+| E1    | Victim                 | Provides sensitive info like location, health, distress status | Unauthorized collection or use of PII                  | Identifiability, Unawareness             | Consent management, data minimization, privacy notices |
+| P1    | User App               | Publishes MQTT messages with victim data      | Hardcoded credentials, lack of encryption              | Linkability, Detectability              | App-level TLS, dynamic client IDs               |
+| DF1   | Victim to App          | Sends victim data to app                      | Unencrypted transmission                               | Identifiability                          | Encrypt at source or secure channel (HTTPS)     |
+| DF2/DF3/DF4 | Drone broker network | Relays messages to edge/cloud              | Broker spoofing, bridge message leakage                | Linkability, Non-compliance              | Use TLS/SSL, authenticate brokers               |
+| P2/P3 | Broker Forwarders      | Route messages to cloud                       | MQTT topic leakage, no ACLs                            | Linkability, Detectability               | Enforce topic-level ACLs, broker auth           |
+| DF5/DF6 | Message to Gateway   | MQTT over TCP                                 | Lack of message integrity or replay protection         | Detectability                            | Use HMAC, timestamps, TLS                       |
+| P4    | Cloud Gateway          | Entry point to cloud layer                    | Cloud misconfigurations, weak auth                     | Non-compliance, Identifiability          | OAuth2, federated identity, rate limiting       |
+| DF7   | MQTT Payload           | Message forwarded to data layer               | Payload in plaintext, possible data inference          | Identifiability                          | Encrypt payload (AES over MQTT)                 |
+| DF8   | Authentication         | Auth before DB insert                         | Weak credentials, brute-force login                    | Non-repudiation                          | Multi-factor auth, rate limiting                |
+| P5    | Message Parser         | Processes incoming payload                    | Poor input validation, injection risk                  | Non-compliance                           | Validate/sanitize data before DB insertion      |
+| DF9   | SQL INSERT             | Writes to MySQL DB                            | SQL Injection, logging sensitive info                  | Non-repudiation                          | Prepared statements, encryption-at-rest         |
+| DS1   | MySQL Database         | Stores mission-critical data                  | Data breach, poor access control                       | Non-compliance, Identifiability          | Column-level encryption, access logs            |
+| DF10/DF11 | Query to DB and results | Dashboard queries                        | Inference via pattern queries                          | Linkability, Detectability              | Limit user roles, anonymized query results      |
+| P6    | C2 Dashboard           | Queries and visualizes                        | Overexposure to operators, session hijack              | Unawareness, Non-compliance              | RBAC, secure sessions                           |
+| DF12  | Visualization to CMC   | Visual output to operator                     | Shoulder-surfing, unauthorized viewing                 | Detectability, Identifiability           | Redact sensitive fields, audit logs             |
+| E2    | CMC Operator           | Interacts with dashboard                      | Misuse of data, privacy violations                     | Unawareness, Non-compliance              | Training, privacy policies                      |
+
 
 
 ## MQTT-Specific Privacy Threats
