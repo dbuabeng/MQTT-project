@@ -37,5 +37,6 @@ I manually generated the encryption key. It is stored inside docs/encryptionKey.
 
 In these programs messages are encrypted and tokenized for privacy protection.
 
-## Link to YouTube Video
+## Link to YouTube Presentation Video
+Don't forget to like and subscribe
 https://youtu.be/nSvhTHZ3BNM
